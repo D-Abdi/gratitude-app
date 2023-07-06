@@ -2,8 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { NativeBaseProvider, Box } from "native-base";
 import { StyleSheet, Text, View } from 'react-native';
 
-
-
 export default function App() {
   return (
       <NativeBaseProvider>
