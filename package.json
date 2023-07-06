@@ -29,5 +29,9 @@
     "@types/react-native": "^0.72.2",
     "typescript": "^4.9.4"
   },
+  "overrides": {
+    "metro": "0.76.0",
+    "metro-resolver": "0.76.0"
+  },
   "private": true
 }
