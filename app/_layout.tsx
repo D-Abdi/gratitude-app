@@ -1,4 +1,4 @@
-import {Slot, Tabs} from 'expo-router';
+import {Tabs} from 'expo-router';
 import React from "react";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialIcons } from '@expo/vector-icons';
