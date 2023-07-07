@@ -1,17 +1,14 @@
 import {Tabs, usePathname } from 'expo-router';
-import { useRoute } from '@react-navigation/native';
 import React from "react";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialIcons } from '@expo/vector-icons';
 import {Provider} from "../context/auth";
 import HeaderTitle from "../Components/HeaderTitle";
-import {Text} from "react-native";
 
 export default function Layout() {
     const currentRoute = usePathname();
 
-    console.log(currentRoute, "Current route")
-
+    // If the current route is the sign-in page, we don't want to show the tabs.
     if (currentRoute === '/sign-in') {
         return (
             <Provider>
@@ -29,6 +26,7 @@ export default function Layout() {
         );
     }
 
+    // Show the tabs.
     return (
         <Provider>
             <Tabs>
