@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import {Text, View, StyleSheet, Pressable} from "react-native";
 import { useAuth } from "../../context/auth";
 import { FontAwesome5 } from '@expo/vector-icons';
 
@@ -6,15 +6,53 @@ export default function SignIn() {
     const { signIn } = useAuth();
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.container}>
             <FontAwesome5 name="praying-hands" size={64} color="black" style={{ marginBottom: 12}} />
-            <Text style={{ fontSize: 48, fontWeight: "bold", marginBottom: 124 }}>Gratitude app</Text>
-            <Text onPress={() => signIn()}
-                style={{ fontSize: 24, fontWeight: "bold", color: "white", backgroundColor: "#757575", borderStyle: "solid", borderWidth: 2, borderColor: "#757575", paddingHorizontal: 96, paddingVertical: 16, borderRadius: 12, marginBottom: 24 }}
-            >Sign In</Text>
-            <Text
-                  style={{ fontSize: 24, fontWeight: "bold", color: "#757575", borderStyle: "solid", borderWidth: 2, borderColor: "#757575", paddingHorizontal: 96, paddingVertical: 16, borderRadius: 12 }}
-            >Sign up</Text>
+            <Text style={styles.logoText}>Gratitude app</Text>
+            <Pressable onPress={() => signIn()} style={[styles.button, styles.signInButton]}>
+                <Text style={[styles.buttonText, styles.signInButtonText]}>Sign In</Text>
+            </Pressable>
+            <Pressable style={[styles.button, styles.signUpButton]}>
+                <Text style={[styles.buttonText, styles.signUpButtonText]}>Sign In</Text>
+            </Pressable>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    logoText: {
+        fontSize: 48,
+        fontWeight: "bold",
+        marginBottom: 124
+    },
+    button: {
+        borderWidth: 2,
+        borderStyle: "solid",
+        paddingHorizontal: 96,
+        paddingVertical: 16,
+        borderRadius: 12,
+    },
+    buttonText: {
+        fontSize: 24,
+        fontWeight: "bold",
+    },
+    signInButton: {
+        backgroundColor: "#757575",
+        borderColor: "#757575",
+        marginBottom: 24
+    },
+    signInButtonText: {
+        color: "#fff"
+    },
+    signUpButton: {
+        borderColor: "#757575",
+    },
+    signUpButtonText: {
+        color: "#757575"
+    }
+})
