@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const colors = {
+export const colors = {
     primary: "#757575",
     secondary: "#757575",
     success: "#4caf50",
@@ -25,10 +25,14 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    logoIcon: {
+        color: colors.dark
+    },
     logoText: {
         fontSize: 48,
         fontWeight: "bold",
-        marginBottom: 124
+        marginBottom: 124,
+        color: colors.dark
     },
     button: {
         borderWidth: 2,
@@ -57,5 +61,4 @@ export const globalStyles = StyleSheet.create({
     primaryButtonText: {
         color: colors.primaryButtonText,
     }
-
 });

@@ -1,21 +1,18 @@
-import {Text, View, Pressable} from "react-native";
+import {Text, View} from "react-native";
 import { useAuth } from "../../context/auth";
 import { FontAwesome5 } from '@expo/vector-icons';
 import {globalStyles} from "../../style/globalStyles";
+import {PrimaryButton_LG, PrimaryButtonOutline_LG } from "../../components/buttons/Button";
 
 export default function SignIn() {
     const { signIn } = useAuth();
 
     return (
         <View style={globalStyles.containerFlexCenter}>
-            <FontAwesome5 name="praying-hands" size={64} color="black" style={{ marginBottom: 12}} />
+            <FontAwesome5 name="praying-hands" size={64} color="black" style={[{ marginBottom: 12}, globalStyles.logoIcon]} />
             <Text style={globalStyles.logoText}>Gratitude app</Text>
-            <Pressable onPress={() => signIn()} style={[globalStyles.button, globalStyles.primaryButton]}>
-                <Text style={[globalStyles.buttonText, globalStyles.primaryButtonText]}>Sign In</Text>
-            </Pressable>
-            <Pressable style={[globalStyles.button, globalStyles.primaryBorder]}>
-                <Text style={[globalStyles.buttonText, globalStyles.primaryText]}>Sign In</Text>
-            </Pressable>
+            <PrimaryButton_LG text={"Sign in"} callBack={() => signIn()} pressableStyle={{marginBottom: 24}} />
+            <PrimaryButtonOutline_LG text={"Sign up"} callBack={() => signIn()} />
         </View>
     )
 }
