@@ -7,10 +7,10 @@ const ExpoSecureStoreAdapter = {
         return SecureStore.getItemAsync(key)
     },
     setItem: (key: string, value: string) => {
-        SecureStore.setItemAsync(key, value)
+        SecureStore.setItemAsync(key, value).then(() => { /* noop */ })
     },
     removeItem: (key: string) => {
-        SecureStore.deleteItemAsync(key)
+        SecureStore.deleteItemAsync(key).then(() => { /* noop */ })
     },
 }
 
