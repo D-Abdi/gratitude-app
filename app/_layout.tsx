@@ -14,22 +14,27 @@ export default function Layout() {
                         <Ionicons name="ios-journal-outline" size={24} color="black" />
                     )
                 }} />
-                <Tabs.Screen name="DailyZen" options={{ tabBarLabel: "Daily zen", href: "/daily-zen",
+                <Tabs.Screen name="DailyZen" options={{ tabBarLabel: "Daily zen", href: "/DailyZen",
                     tabBarIcon: () => (
                         <Ionicons name="ios-happy-outline" size={24} color="black" />
                         )
                     }}
                 />
-                <Tabs.Screen name="Calendar" options={{ tabBarLabel: "Calendar", href: "/calendar",
+                <Tabs.Screen name="Calendar" options={{ tabBarLabel: "Calendar", href: "/Calendar",
                     tabBarIcon: () => (
                         <Ionicons name="ios-calendar-outline" size={24} color="black" />
                     )
                 }} />
-                <Tabs.Screen name="Timeline" options={{ tabBarLabel: "Timeline", href: "/timeline",
+                <Tabs.Screen name="Timeline" options={{ tabBarLabel: "Timeline", href: "/Timeline",
                     tabBarIcon: () => (
                         <MaterialIcons name="timeline" size={24} color="black" />
                     )
                 }} />
+                <Tabs.Screen name="(auth)/sign-in" options={{
+                        // This tab will no longer show up in the tab bar.
+                        href: null,
+                    }}
+                />
             </Tabs>
         </Provider>
     );
