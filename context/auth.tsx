@@ -1,28 +1,33 @@
-import { useRouter, useSegments } from "expo-router";
-import React from "react";
+import { useRouter, useSegments } from 'expo-router';
+import React from 'react';
 
 const AuthContext = React.createContext(null);
 
-// This hook can be used to access the user info
+// This hook can be used to access the user info.
 export function useAuth() {
     return React.useContext(AuthContext);
 }
 
-// This hook will protect the route and redirect to login if the user is not logged in
+// This hook will protect the route access based on user authentication.
 function useProtectedRoute(user) {
     const segments = useSegments();
+    const router = useRouter();
 
     React.useEffect(() => {
-        const inAuthGroup = segments[0] === "(auth)";
+        const inAuthGroup = segments[0] === '(auth)';
 
-        // If the user is not signed in and the initial segment is not anything in the auth group, redirect to sign in
-        if (!user && !inAuthGroup) {
-            useRouter().replace("/sign-in")
-            // If the user is signed in and the initial segment is anything in the auth group, redirect to home
+        if (
+            // If the user is not signed in and the initial segment is not anything in the auth group.
+            !user &&
+            !inAuthGroup
+        ) {
+            // Redirect to the sign-in page.
+            router.replace('/sign-in');
         } else if (user && inAuthGroup) {
-            useRouter().replace("/")
+            // Redirect away from the sign-in page.
+            router.replace('/Journal');
         }
-    }, [user, segments])
+    }, [user, segments]);
 }
 
 export function Provider(props) {
@@ -31,12 +36,13 @@ export function Provider(props) {
     useProtectedRoute(user);
 
     return (
-        <AuthContext.Provider value={{
-            signIn: () => setAuth({}),
-            signOut: () => setAuth(null),
-            user
-        }}>
+        <AuthContext.Provider
+            value={{
+                signIn: () => setAuth({}),
+                signOut: () => setAuth(null),
+                user,
+            }}>
             {props.children}
         </AuthContext.Provider>
-    )
+    );
 }
