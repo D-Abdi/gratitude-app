@@ -24,3 +24,19 @@ function useProtectedRoute(user) {
         }
     }, [user, segments])
 }
+
+export function Provider(props) {
+    const [user, setAuth] = React.useState(null);
+
+    useProtectedRoute(user);
+
+    return (
+        <AuthContext.Provider value={{
+            signIn: () => setAuth({}),
+            signOut: () => setAuth(null),
+            user
+        }}>
+            {props.children}
+        </AuthContext.Provider>
+    )
+}
