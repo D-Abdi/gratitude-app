@@ -3,7 +3,7 @@ import React from "react";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialIcons } from '@expo/vector-icons';
 import {Provider} from "../context/auth";
-import HeaderTitle from "../Components/HeaderTitle";
+import HeaderTitle from "../components/HeaderTitle";
 
 export default function Layout() {
     const currentRoute = usePathname();
