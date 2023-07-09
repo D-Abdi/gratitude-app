@@ -27,9 +27,15 @@ export const PrimaryButton  = ({ text, callBack = null, pressableStyle = null, t
 }
 
 
-export const PrimaryButtonOutline_LG  = ({ text, callBack = null, pressableStyle = null, textStyle = null }) => {
+export const PrimaryButtonOutline  = ({ text, callBack = null, pressableStyle = null, textStyle = null, size = null }) => {
+    const [buttonSize, setButtonSize] = useState(globalStyles.buttonRegular);
+
+    useEffect(() => {
+        setButtonSize(setButtonSizeHandler(size));
+    }, [])
+
     return (
-        <Pressable onPress={callBack} style={[globalStyles.button,  globalStyles.buttonLarge,globalStyles.primaryBorder, pressableStyle]}>
+        <Pressable onPress={callBack} style={[globalStyles.button,  globalStyles.buttonLarge,globalStyles.primaryBorder, pressableStyle, buttonSize]}>
             <Text style={[globalStyles.buttonText, globalStyles.primaryText, textStyle]}>{text}</Text>
         </Pressable>
     )
