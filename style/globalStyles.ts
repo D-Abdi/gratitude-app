@@ -37,9 +37,19 @@ export const globalStyles = StyleSheet.create({
     button: {
         borderWidth: 2,
         borderStyle: "solid",
+        borderRadius: 12,
+    },
+    buttonRegular: {
+        paddingHorizontal: 48,
+        paddingVertical: 12,
+    },
+    buttonSmall: {
+        paddingHorizontal: 24,
+        paddingVertical: 8,
+    },
+    buttonLarge: {
         paddingHorizontal: 96,
         paddingVertical: 16,
-        borderRadius: 12,
     },
     buttonText: {
         fontSize: 24,
